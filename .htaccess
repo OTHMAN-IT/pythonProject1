@@ -1,0 +1,7 @@
+CGIHANDLER().run(app)
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ /~ Guest / \Users\Guest\PycharmProjects\pythonProject1\Lab2 /index.cgi/$1 [L]
