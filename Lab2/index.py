@@ -36,7 +36,7 @@ def circle_maker(x):
                 popup = '<h3><b>{}</b></h3> \n<b>Cases</b>: {}\n <b>Deaths</b>: {}'.format(x[3], x[2], x[4])).add_to(map)
 
 api_covid[['Lat', 'Long_', 'Confirmed', 'Combined_Key', 'Deaths']].dropna(subset = ['Lat', 'Long_']).apply(lambda x: circle_maker(x), axis = 1)
-
+###
 display_map = map._repr_html_()
 
 ##########################################################################
