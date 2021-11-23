@@ -6,7 +6,7 @@ import requests, pandas as pd
 from bs4 import BeautifulSoup
 ###TEST
 def covid():
- api_covid = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-20-2021.csv')
+ api_covid = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-22-2021.csv')
  getGroupCountry = api_covid.groupby('Country_Region').sum()[['Confirmed', 'Deaths']]
  data_covid = getGroupCountry.sort_values("Confirmed", ascending=False)
  return data_covid
@@ -17,7 +17,7 @@ display_field = [(country, confirmed, deaths) for country, confirmed, deaths in 
 
 ###########################################################################""""
 
-api_covid = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-20-2021.csv')
+api_covid = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-22-2021.csv')
 api_covid.head()
 map = folium.Map(location = [25.025885, -78.035889],
            tiles = 'OpenStreetMap',
@@ -53,7 +53,7 @@ data_covid1 = sum_cases()
 ############################################################################
 
 def sum_deaths():
-    api_covid = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-19-2021.csv')
+    api_covid = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-22-2021.csv')
     getGroupCountry2 = api_covid.groupby('Country_Region').sum()[['Deaths']]
     data_covid2 = getGroupCountry2.sum().tolist()
     return data_covid2
