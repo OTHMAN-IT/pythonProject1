@@ -10,6 +10,12 @@
   <title>
     API CASES COVID
   </title>
+  <style>
+    div.row {
+  display: flex;
+  justify-content: space-between;
+}
+  </style>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
@@ -153,149 +159,23 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
+     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">weekend</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Top country</p>
-
-                <table class="table">
-  <thead>
-    <tr>
-      <th scope="col" style="text-align:center">Country</th>
-      <th scope="col" style="text-align:center">Confirmed</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for v in display_field1 %}
-    <tr>
-      <td style="text-align:center">{{v[0]}}</td>
-        <td style="text-align:center">{{v[1]}}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
-
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-          </div>
+          <img src='/static/assets/img/plotCases.jpg' width="400px;"/>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Confirmed cases</p><br/>
-                <h4 class="mb-0">{{ data_covid1 }}</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>update 2021-11-21 04:22:13</p>
-            </div>
-          </div>
+        <img src='/static/assets/img/plotDeaths.png' width="400px;"/>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Confirmed Deaths</p><br/>
-                <h4 class="mb-0">{{ data_covid2 }}</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>update 2021-11-21 04:22:13</p>
-            </div>
-          </div>
+          <img src='/static/assets/img/plotRecovered.png' width="400px;"/>
         </div>
       </div>
       <div class="row mt-4">
         {{ display_map | safe }}
       </div>
       <div class="row mb-4">
-        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
-          <div class="card">
-            <div class="card-header pb-0">
-              <div class="row">
-                <div class="col-lg-6 col-7">
-                  <h6>Around World</h6>
-                  <p class="text-sm mb-0">
-                    <i class="fa fa-check text-info" aria-hidden="true"></i>
-                  </p>
-                </div>
-                <div class="col-lg-6 col-5 my-auto text-end">
-                  <div class="dropdown float-lg-end pe-4">
-                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Countries</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Confirmed</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Deaths</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last update</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                                    {% for v in display_field %}
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="/static/assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">{{v[0]}}</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                       {{v[1]}}
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> {{v[2]}}</span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold"> 2021-11-21 04:22:13</span>
-                            </div>
-                          </div>
 
-                        </div>
-                      </td>
-                    </tr>
-                  {% endfor %}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        {{result | safe}}
 
       </div>
       <footer class="footer py-4  ">
